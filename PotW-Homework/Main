@@ -1,4 +1,3 @@
-package Homework;
 import java.util.*;
 public class Main {
 
@@ -20,18 +19,27 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int count = sc.nextInt();
-		ArrayList<assignment> assignments = new ArrayList<assignment>();
+		assignment[] assignments = new assignment[count];
 		
 		for(int i = 0; i < count; i++){
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			
-			assignments.set(i, new assignment(x,y));
+			assignments[i] = new assignment(x, y);
+		}
+		int maxCon = 0;
+		int curCon = 0;
+		for(int i = 0; i < assignments.length-1; i++) {
+			int min = assignments[i].getStart();
+			int max = assignments[i].getEnd();
+			for(int j = i+1; j < assignments.length; j++)
+			    if(assignments[j].getStart() >= min && assignments[j].getEnd() <= max)
+			        curCon++;
+			 if(curCon > maxCon)
+			    maxCon = curCon;
 		}
 		
-		for(assignment a : assignments) {
-			
-		}
+		System.out.println(maxCon);
 
 	}
 	
