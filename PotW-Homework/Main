@@ -2,24 +2,39 @@ package Homework;
 import java.util.*;
 public class Main {
 
-	public class assignment{
+	public static class assignment{
 		int s = 0;
 		int e = 0;
 		public assignment(int start, int end){
 			start = s;
 			end = e;
 		}
+		public int getStart() {
+			return s;
+		}
+		
+		public int getEnd() {
+			return e;
+		}
 	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int count = sc.nextInt();
+		ArrayList<assignment> assignments = new ArrayList<assignment>();
 		
 		for(int i = 0; i < count; i++){
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			
+			assignments.set(i, new assignment(x,y));
+		}
+		
+		for(assignment a : assignments) {
+			
 		}
 
 	}
+	
+	
 
 }
